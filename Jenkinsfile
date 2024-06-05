@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/SvZhdanovich/test.git'
+                git branch: 'master', url: 'https://github.com/SvZhdanovich/test.git'
             }
         }
         stage('Setup Environment') {
@@ -22,6 +22,12 @@ pipeline {
                 pytest
                 '''
             }
+        }
+    }
+    post {
+        always {
+            junit '/test-reports/*.xml'
+            archiveArtifacts artifacts: '/logs/*.log', allowEmptyArchive: true
         }
     }
 }
