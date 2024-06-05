@@ -24,11 +24,4 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            // Сохранение результатов тестов и логов
-            junit '/test-reports/*.xml'
-            archiveArtifacts artifacts: '/logs/*.log', allowEmptyArchive: true
-        }
-    }
 }
