@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/your-repository.git'
+                git 'https://github.com/SvZhdanovich/test.git'
             }
         }
         stage('Setup Environment') {
